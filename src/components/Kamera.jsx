@@ -1,23 +1,20 @@
-import { useEffect, useRef } from 'react'
 import { CameraControls } from '@react-three/drei'
-import { store } from '../store'
 import { useFrame } from '@react-three/fiber'
+import { useRef } from 'react'
 import { Vector3 } from 'three'
 
 export const Kamera = () => {
   const camRef = useRef()
 
-  useEffect(() => {
-    store.loaded = true
-  }, [])
+  const targetPosition = new Vector3()
+  const radius = 10
+  useFrame(({ clock }) => {
+    if (camRef.current) {
+      const angle = clock.getElapsedTime() * 0.05
+      targetPosition.set(Math.sin(angle) * radius, 0, Math.cos(angle) * radius)
+      camRef.current.setLookAt(targetPosition.x, targetPosition.y, targetPosition.z, 0, 0, 0, true)
+    }
+  })
 
-  // const targetPosition = new Vector3()
-  // useFrame(({ pointer }) => {
-  //   if (camRef.current) {
-  //     targetPosition.set(-Math.sin(pointer.x), -Math.atan(pointer.y), 4)
-  //     camRef.current.setPosition(targetPosition.x, targetPosition.y, targetPosition.z, true)
-  //   }
-  // })
-
-  return <CameraControls ref={camRef} makeDefault />
+  return <CameraControls ref={camRef} makeDefault mouseButtons={{ left: 0, middle: 0, right: 0, wheel: 0 }} touches={{ one: 0, two: 0, three: 0 }} />
 }

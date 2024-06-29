@@ -1,9 +1,12 @@
 export function Overlay() {
   return (
     <>
+      {/* <div className="left-0 right-0 fixed mb-24 md:mb-14 text-center bottom-0 font-semibold tracking-tighter text-xl hover:scale-105">
+        <p className="cursor-pointer select-none">SCROLL, SCROLL</p>
+      </div> */}
       <div className="absolute top-0 left-0 w-full h-full p-4 md:p-10 flex items-start flex-col  select-none overflow-hidden">
         <div className="flex w-full p-0 items-center justify-between">
-          <p className="font-antonio text-5xl tracking-[-2px] font-bold">3D WEB</p>
+          <p className="font-antonio text-5xl tracking-[-2px] font-bold">Suzanne</p>
           <p className="text-3xl">⍫</p>
         </div>
         <div className="mt-16 w-full p-0 flex items-start justify-between">
@@ -17,7 +20,7 @@ export function Overlay() {
             style={{
               transform: 'rotate3d(0, 0, 1, 90deg) translate3d(100%,10px,0)'
             }}>
-            DRAG POINTER &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ●
+            SCROLL IT GOOD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ●
           </p>
         </div>
         <div className="font-antonio w-full h-full flex justify-between items-end p-0">
@@ -33,9 +36,6 @@ export function Overlay() {
 
           <p className="justify-self-end text-md italic">Berlin, San Francisco</p>
         </div>
-      </div>
-      <div className="left-0 right-0 fixed mb-24 md:mb-14 text-center bottom-0 font-semibold tracking-tighter text-xl">
-        <p className="cursor-pointer select-none">CLICK SOMEWHERE</p>
       </div>
     </>
   )
